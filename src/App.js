@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import react from "react";
+import { HashRouter, Link, Route,Routes } from "react-router-dom";
+import styled from "styled-components";
+import AddNew from "./pages/AddNew";
+import GetStudent from "./pages/GetStudent";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import AcademicInfo from "./pages/AcademicInfo";
+import UserProfile from "./pages/UserProfile";
+import SearchStudent from "./pages/SearchStudent";
+import UserAcadsInfo from "./pages/UserAcadsInfo";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HashRouter>
+        <Routes>
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/register" element={<Register />} />
+          <Route exact path="/your-academic-info" element={<AcademicInfo />} />
+          <Route path="/user-profile/:roll" element={<UserProfile />} />
+          <Route path="/search/user/:roll" element={<UserAcadsInfo />} />
+          <Route
+            exact
+            path="/get-student-info"
+            element={<SearchStudent A={0} />}
+          />
+          <Route
+            exact
+            path="/delete-student-info"
+            element={<SearchStudent A={1} />}
+          />
+          <Route exact path="/add-new-student" element={<AddNew />} />
+          <Route exact path="/get-student-info" element={<GetStudent />} />
+          <Route exact path="/" element={<Home />} />
+        </Routes>
+      </HashRouter>
     </div>
   );
 }
