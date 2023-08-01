@@ -113,8 +113,14 @@ export default function SearchStudent(props) {
           if(roll.length==0){setmsg("enter roll no");return;}
           navigate(`/search/user/${roll}`)}}>Search</button>}
         {
-            props.A==1 &&
-        <button onClick={()=>Action()}>Remove</button>}
+            props.A==1 && <>
+            <div className="btn">
+            <div></div>
+             <button onClick={()=>Action()}>Remove</button>
+            <div></div>
+            </div>
+            </>
+             }
       </div>
       {
         detailVis==true && <div className="basic-details">
@@ -163,8 +169,11 @@ export default function SearchStudent(props) {
            />
          </div>
          <div className="btn">
-
+           <div></div>
+           <div>
          <button onClick={()=>CnD()}>Confirm and Delete</button>
+           </div>
+           <div></div>
          </div>
         </div>
       }
@@ -182,15 +191,37 @@ const Container = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: auto auto;
   }
- 
-  .search-box{
-    margin:2rem;
-    width:75%;
-    height:80px;
-    border:1px solid black;
-    align-item:center;
+
+  .search-box {
+    margin: 2rem;
+    width: 75%;
+    height: 80px;
+    border: 1px solid black;
+    align-item: center;
   }
-  ${'' /* .btn{
+  .btn {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: auto auto auto;
+  }
+  button {
+    width: auto;
+    height: 2rem;
+    ${'' /* height: 2rem; */}
+    border: none;
+    border-radius: 0.2rem;
+    background-color: blue;
+    color: white;
+    &:hover {
+      background-color: grey;
+      color: black;
+      cursor: pointer;
+    }
+  }
+
+  ${
+    "" /* .btn{
     float:right;
-  } */}
+  } */
+  }
 `;

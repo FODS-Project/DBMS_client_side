@@ -28,8 +28,10 @@ export default function Home() {
       <Header heading={stake == "S" ? "For Students" : "For Faculty/Admin"} />
       <Container>
         <div className="options">
-          <h6 >**Red-colored are only accessible to authorized person</h6>
-          <h6 style={{color:"yellow"}}>**Yellow-colored are under-process</h6>
+          <h6>**Red-colored are only accessible to authorized person</h6>
+          <h6 style={{ color: "yellow" }}>
+            **Yellow-colored are under-process
+          </h6>
           <div className={"opt add" + (stake != "S" ? " NA" : " A")}>
             <div
               onClick={() => {
@@ -53,15 +55,14 @@ export default function Home() {
                     <ul>
                       <li onClick={() => navigate("/your-academic-info")}>
                         Your Academic information
-                      </li>
-                      <li>Time table</li>
+                      </li>  
+                      <li onClick={() => navigate("/time-table")}>Time table</li>
                     </ul>
                   </div>
                 )}
               </>
             )}
           </div>
-
           <>
             <div className={"opt getinfo" + (stake == "S" ? " NA" : " A")}>
               <div
@@ -126,27 +127,22 @@ export default function Home() {
               )}
             </div>
           </>
-         {
-          opt.map((data)=>{
-
-        return(
-          <div className={"opt add UW" }>
-            <div
-              onClick={()=>{}}
-            >
-              <span className="sec1">
-                <span className="plus">
-                <FaPlusSquare />
-                  {/* {studentsVis === 0 && <FaPlusSquare />}
+          {opt.map((data) => {
+            return (
+              <div className={"opt add UW"}>
+                <div onClick={() => {}}>
+                  <span className="sec1">
+                    <span className="plus">
+                      <FaPlusSquare />
+                      {/* {studentsVis === 0 && <FaPlusSquare />}
                   {studentsVis !== 0 && <FaMinusSquare />} */}
-                </span>
-                {data}
-              </span>
-            </div>
-            
-          </div>)
-          })
-         }
+                    </span>
+                    {data}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </Container>
     </>

@@ -132,7 +132,7 @@ export default function AddNew(props){
             />
             <div className="box">
               <BasDetails
-                label="village/town/city"
+                label="City"
                 type="text"
                 onchange={(e) => {
                   props.setcity(e.target.value);
@@ -153,7 +153,7 @@ export default function AddNew(props){
                 i={0}
               />
               <BasDetails
-                label="Pin Code"
+                label="Pin code"
                 type="tel"
                 onchange={(e) => {
                   props.setpincode(e.target.value);
@@ -214,7 +214,7 @@ export default function AddNew(props){
                 i={0}
               />
               <BasDetails
-                label="Contact Person"
+                label="Contact person"
                 type="text"
                 onchange={(e) => {
                   props.setemgperson(e.target.value);
@@ -225,7 +225,7 @@ export default function AddNew(props){
               />
             </div>
             <BasDetails
-              label="Relationship with the Person"
+              label="Relation with  person"
               type="text"
               onchange={(e) => {
                 props.setemgrelation(e.target.value);
@@ -235,7 +235,7 @@ export default function AddNew(props){
               i={0}
             />
             <BasDetails
-              label="Emergency contact Address"
+              label="Emg contact Address"
               type="textarea"
               onchange={(e) => {
                 props.setemgaddress(e.target.value);

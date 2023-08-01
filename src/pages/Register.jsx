@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import BasDetails from '../components/BasDetails';
 import axiosIntance from "../utils/axios"
 import axios from 'axios';
+import styled from 'styled-components';
 
 export default function Register() {
    const stakeholders=[
@@ -211,9 +212,36 @@ useEffect(() => setupActualDate(), [date]);
           i={3}
         />
       </form>
-
+       <Container>
+       <div className="box">
+       <div></div>
       <button onClick={() => navigate("/login")}>Login</button>
+      <div></div>
       <button onClick={SignUp}>Register</button>
+      <div></div>
+       </div>
+       </Container>
     </>
   );
 }
+
+const Container = styled.div`
+  .box {
+    padding:2rem;
+    display: grid;
+    grid-template-columns: 4fr 2fr 1fr 2fr 10fr;
+    gap: auto auto auto auto auto;
+    button{
+      width:4rem;
+      height:2rem;
+      border:none;
+      border-radius:0.2rem;
+      background-color:blue;
+      color:white;
+      &:hover{
+      background-color:grey;
+      color:black;
+      }
+    }
+  }
+`;

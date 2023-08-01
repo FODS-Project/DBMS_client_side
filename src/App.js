@@ -10,6 +10,7 @@ import AcademicInfo from "./pages/AcademicInfo";
 import UserProfile from "./pages/UserProfile";
 import SearchStudent from "./pages/SearchStudent";
 import UserAcadsInfo from "./pages/UserAcadsInfo";
+import TimeTable from "./pages/TimeTable";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           />
           <Route exact path="/add-new-student" element={<AddNew />} />
           <Route exact path="/get-student-info" element={<GetStudent />} />
+          <Route exact path="/time-table" element={<TimeTable />} />
           <Route exact path="/" element={<Home />} />
         </Routes>
       </HashRouter>

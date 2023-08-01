@@ -3,11 +3,15 @@ import Header from '../components/header'
 import BasDetails from '../components/BasDetails';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import styled from 'styled-components';
+import { FaEye } from 'react-icons/fa';
 
 
 export default function Login() {
   
   const navigate=useNavigate();
+  const [idV,setidV]=useState(false);
+  const [passV,setpassV]=useState(false);
   
   const [roll,setroll]=useState("");
   const [passwrd,setpasswrd]=useState("");
@@ -17,7 +21,7 @@ export default function Login() {
   console.log((new Date).getTime);
     const SignIn=async()=>{
 
-        seterrid("");
+        seterrid("");  
         setmsg("");
         seterrpass("");
         if(roll.length>=5 && passwrd.length>=6){
@@ -58,22 +62,25 @@ export default function Login() {
 
   return (
     <>
-      <Header heading="Login"
-      msg={msg} />
+      <Header heading="Login" msg={msg} />
+
       <BasDetails
         label="Id : "
-        type="password"
+        type={idV==true?"test":"password"}
         onchange={(e) => {
-          setroll((e.target.value).toUpperCase());
+          setroll(e.target.value.toUpperCase());
         }}
         placeholder="Stakeholder code/login id"
         value={roll}
         errmsg={errid}
         i={0}
+        eye={1}
+        oneye={(e)=>{setpassV(false);setidV(!idV)}}
       />
+      {/* <FaEye /> */}
       <BasDetails
         label="Password : "
-        type="password"
+        type={passV==true?"text":"password"}
         onchange={(e) => {
           setpasswrd(e.target.value);
         }}
@@ -81,12 +88,45 @@ export default function Login() {
         value={passwrd}
         errmsg={errpass}
         i={0}
+        eye={1}
+        oneye={(e)=>{setpassV(!passV);setidV(false)}}
       />
-      <div>
-      <button onClick={()=>navigate("/register")}>Register</button>
+      {/* <FaEye /> */}
 
-      <button onClick={SignIn}>Login</button>
-      </div>
+      <Container>
+        <div className="box">
+          <div></div>
+          <button onClick={() => navigate("/register")}>Register</button>
+          <div></div>
+          <button onClick={SignIn}>Login</button>
+          <div></div>
+        </div>
+      </Container>
+
     </>
   );
 }
+
+
+
+const Container = styled.div`
+  .box {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr 0fr 2fr 10fr;
+    gap: auto auto auto auto auto;
+    button {
+      width: 4rem;
+      height: 2rem;
+      border: none;
+      border-radius: 0.2rem;
+      background-color: blue;
+      color: white;
+      &:hover {
+        background-color: grey;
+        color: black;
+        cursor:pointer;
+      }
+    }
+  }
+`;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Calendar } from 'react-calendar';
 import "react-calendar/dist/Calendar.css";
+import { FaEye } from 'react-icons/fa';
 import styled from 'styled-components';
 
 
@@ -18,11 +19,21 @@ export default  function BasDetails(props) {
           <form>
           <div className="row">
 
+           <div className="box">
+                
+               <div>
             <label>
               {props.label}
               {props.msg}
             </label>
+            
+               </div>
+               <div>
+
             {props.i == 0 && (
+              <>
+              <div className="inpt">
+
               <input
                 type={props.type}
                 onChange={props.onchange}
@@ -31,6 +42,15 @@ export default  function BasDetails(props) {
                 pattern={props.pattern}
                 disabled={props.disabled}
               />
+              
+              <div className="eye" onClick={props.oneye}>
+
+               {props.eye==1 && <FaEye />}
+              </div>
+              <div></div>
+              </div>
+              
+              </>
             )}
             {props.i == 1 && (
               <select
@@ -81,6 +101,8 @@ export default  function BasDetails(props) {
                 disabled={true}
               />
             )}
+               </div>
+           </div>
           </div>
           </form>
         </div>
@@ -95,19 +117,32 @@ export default  function BasDetails(props) {
       padding: 1.2rem;
 
       .row {
-        height: 10px;
+        height: 15px;
+        .box {
+          display: grid;
+          grid-template-columns: 1fr 6fr;
+          gap: auto auto;
+        }
       }
-      input {
-        width: 45%;
-        height: 1.5rem;
-        border-style: none;
-        border-radius: 5px;
-        padding-left: 0.5rem;
-        color: blue;
-        font-weight: bold;
-        text-transform: uppercase;      
-        &:focus {
-          background-color: rgb(172, 182, 248);
+      .inpt {
+        {display: flex;
+        grid-template-columns: 49fr 1fr 0.5fr;
+        gap: auto auto auto;
+
+        }
+        input {
+          border: none;
+          width: 45%;
+          height: 1.5rem;
+          border-style: none;
+          border-radius: 5px;
+          padding-left: 0.5rem;
+          color: blue;
+          font-weight: bold;
+          text-transform: uppercase;
+          &:focus {
+            background-color: rgb(172, 182, 248);
+          }
         }
       }
       .dob1 {
